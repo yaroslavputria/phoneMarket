@@ -9,7 +9,6 @@ angular.module('phoneMarketAngularApp')
         self.phoneIdList = ['tmp'];
         Phone.getPhoneIdListAjax().then((phoneList) => {
           self.phoneIdList = phoneList;
-          console.log(phoneList);
         });
       }
     ]

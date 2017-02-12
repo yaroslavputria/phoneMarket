@@ -2,23 +2,14 @@
 
 angular.
   module('phoneMarketAngularApp').
-  factory('Phone', function($http) {
-      // var allPhoneInfos = $http({
-      //   method: 'GET',
-      //   url: './phones.json'
-      // }).then((res) => {
-      //   return res.data;
-      // },
-      // (err) => {
-
-      // });
+  factory('Phone', function() {
       function allPhonesInfosPromise() {
         return new Promise(function(resolve, reject){
           resolve(
             {
               "p1": {
                 "id": "p1",
-                "title":"Iphone",
+                "title":"Iphone1",
                 "imgUrl": "images/p1.jpg",
                 "shortInfoList": {
                   "Color": "red",
@@ -30,8 +21,8 @@ angular.
               },
               "p2": {
                 "id": "p2",
-                "title":"Iphone",
-                "imgUrl": "images/p1.jpg",
+                "title":"Iphone2",
+                "imgUrl": "images/p2.jpg",
                 "shortInfoList": {
                   "Color": "red",
                   "Height": "100mm",
@@ -42,8 +33,8 @@ angular.
               },
               "p3": {
                 "id": "p3",
-                "title":"Iphone",
-                "imgUrl": "images/p1.jpg",
+                "title":"Iphone3",
+                "imgUrl": "images/p3.jpg",
                 "shortInfoList": {
                   "Color": "red",
                   "Height": "100mm",
@@ -54,8 +45,8 @@ angular.
               },
               "p4": {
                 "id": "p4",
-                "title":"Iphone",
-                "imgUrl": "images/p1.jpg",
+                "title":"Iphone4",
+                "imgUrl": "images/p4.jpg",
                 "shortInfoList": {
                   "Color": "red",
                   "Height": "100mm",
@@ -66,8 +57,8 @@ angular.
               },
               "p5": {
                 "id": "p5",
-                "title":"Iphone",
-                "imgUrl": "images/p1.jpg",
+                "title":"Iphone5",
+                "imgUrl": "images/p5.jpg",
                 "shortInfoList": {
                   "Color": "red",
                   "Height": "100mm",
@@ -93,27 +84,6 @@ angular.
           return data[id];
         });
       };
-      // return {
-      //   gepPhoneIdList: function() {
-      //     return ['p1', 'p2', 'p3', 'p4'];  
-      //   },
-      //   getPhone: function(id){
-      //     if (id) {
-      //       return {
-      //         id: 'p1',
-      //         title:'Iphone',
-      //         imgUrl: 'images/p1.jpg',
-      //         shortInfoList: {
-      //           Color: 'red',
-      //           Height: '100mm',
-      //           Width: '50mm',
-      //           Weight: '110g',
-      //           Price: '100$'
-      //         }
-      //       };
-      //      }
-      //   }
-      // };
 
       return factory;
     }
