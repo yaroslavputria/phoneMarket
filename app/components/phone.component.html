@@ -1,0 +1,20 @@
+<div class="panel panel-default phone-card">
+  <div class="panel-heading">{{phoneInfo.title}}</div>
+  <div class="panel-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          <img src="{{phoneInfo.imgUrl}}" alt="{{phoneInfo.title}}" width="100%">
+        </div>
+        <div class="col-xs-6">
+          <ul>
+            <li ng-repeat="(key, value) in phoneInfo.shortInfoList">{{key}}: {{value}}</li>
+          </ul>
+        </div>
+        <div class="col-xs-12 for-button">
+          <button type="button" class="btn btn-default" ng-click="addToCard()">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
