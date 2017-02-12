@@ -6,7 +6,11 @@ angular.module('phoneMarketAngularApp')
     controller: ['Phone',
       function phoneListController(Phone) {
         var self = this;
-        self.phoneIdList = Phone.gepPhoneIdList();
+        self.phoneIdList = ['r'];
+        Phone.getPhoneIdListAjax().then((phoneList) => {
+          self.phoneIdList = phoneList;
+          console.log(phoneList);
+        });
       }
     ]
   });
