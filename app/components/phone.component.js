@@ -9,7 +9,7 @@ angular.module('phoneMarketAngularApp')
         scope.$evalAsync(function() { scope.phoneInfo = phoneInfo;});
       });
       scope.addToCard = function() {
-        Phone.addToCard('scope.phoneInfo.id');
+        Phone.addToCard(scope.phoneInfo.id);
       };
     },
     restrict: "E",

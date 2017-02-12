@@ -3,8 +3,9 @@
 angular.
   module('phoneMarketAngularApp').
   factory('Phone', function() {
+
       function allPhonesInfosPromise() {
-        return new Promise(function(resolve, reject){
+        return new Promise(function(resolve){
           resolve(
             {
               "p1": {
@@ -16,7 +17,8 @@ angular.
                   "Height": "100mm",
                   "Width": "50mm",
                   "Weight": "110g",
-                  "Price": "100$"
+                  "Price": "10",
+                  "Shipping": "12.33"
                 }
               },
               "p2": {
@@ -28,7 +30,8 @@ angular.
                   "Height": "100mm",
                   "Width": "50mm",
                   "Weight": "110g",
-                  "Price": "100$"
+                  "Price": "20",
+                  "Shipping": "12.33"
                 }
               },
               "p3": {
@@ -40,7 +43,8 @@ angular.
                   "Height": "100mm",
                   "Width": "50mm",
                   "Weight": "110g",
-                  "Price": "100$"
+                  "Price": "30",
+                  "Shipping": "12.33"
                 }
               },
               "p4": {
@@ -52,7 +56,8 @@ angular.
                   "Height": "100mm",
                   "Width": "50mm",
                   "Weight": "110g",
-                  "Price": "100$"
+                  "Price": "40",
+                  "Shipping": "12.33"
                 }
               },
               "p5": {
@@ -64,7 +69,8 @@ angular.
                   "Height": "100mm",
                   "Width": "50mm",
                   "Weight": "110g",
-                  "Price": "100$"
+                  "Price": "50",
+                  "Shipping": "12.33"
               }
             }
           });
@@ -74,15 +80,32 @@ angular.
       var factory = {};
 
       factory.getPhoneIdListAjax = function() {
-        return allPhonesInfosPromise().then((data) => {
+        return allPhonesInfosPromise().then(function(data) {
           return Object.keys(data);
         });
       };
 
       factory.getPhoneAjax = function(id) {
-        return allPhonesInfosPromise().then((data) => {
+        return allPhonesInfosPromise().then(function(data) {
           return data[id];
         });
+      };
+
+      factory.addToCard = function(id) {
+        var basket = {};
+        if (localStorage.basket) {
+          basket = JSON.parse(localStorage.basket);
+          if (basket[id]) {
+            basket[id] += 1;
+          } else {
+            basket[id] = 1;
+          }
+          localStorage.setItem('basket', JSON.stringify(basket));
+        } else {
+          var obj = {};
+          obj[id] = 1;
+          localStorage.setItem('basket', JSON.stringify(obj));
+        }
       };
 
       return factory;
