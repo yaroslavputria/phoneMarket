@@ -9,12 +9,12 @@ angular.module('phoneMarketAngularApp')
         self.searchKey = '';
 
         self.searchChanged = function(searchKey) {
-          Phone.getPhoneIdListAjax1(searchKey).then((phoneList) => {
+          Phone.getPhoneIdListAjax(searchKey).then((phoneList) => {
             $scope.$evalAsync(self.phoneIdList = phoneList);
           });
         };
 
-        Phone.getPhoneIdListAjax().then((phoneList) => {
+        Phone.getPhoneIdListAjax(self.searchKey).then((phoneList) => {
           $scope.$evalAsync(self.phoneIdList = phoneList);
         });
       }

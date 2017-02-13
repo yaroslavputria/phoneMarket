@@ -1,3 +1,4 @@
-<button type="button" class="btn btn-default navbar-btn">
-  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+<button type="button" class="btn btn-default navbar-btn" ng-click="$ctrl.basketVisibility = !$ctrl.basketVisibility">
+  <span class="glyphicon glyphicon-trash" aria-hidden="true">{{$ctrl.count}}</span>
 </button>
+<basket-detail-comp ng-show="$ctrl.basketVisibility"></basket-detail-comp>

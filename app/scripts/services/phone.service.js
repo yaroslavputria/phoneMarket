@@ -26,7 +26,7 @@ angular.
                 "title":"Iphone2",
                 "imgUrl": "images/p2.jpg",
                 "shortInfoList": {
-                  "Color": "red",
+                  "Color": "blue",
                   "Height": "100mm",
                   "Width": "50mm",
                   "Weight": "110g",
@@ -39,7 +39,7 @@ angular.
                 "title":"Iphone3",
                 "imgUrl": "images/p3.jpg",
                 "shortInfoList": {
-                  "Color": "red",
+                  "Color": "green",
                   "Height": "100mm",
                   "Width": "50mm",
                   "Weight": "110g",
@@ -52,7 +52,7 @@ angular.
                 "title":"Iphone4",
                 "imgUrl": "images/p4.jpg",
                 "shortInfoList": {
-                  "Color": "red",
+                  "Color": "white",
                   "Height": "100mm",
                   "Width": "50mm",
                   "Weight": "110g",
@@ -65,7 +65,7 @@ angular.
                 "title":"Iphone5",
                 "imgUrl": "images/p5.jpg",
                 "shortInfoList": {
-                  "Color": "red",
+                  "Color": "blue",
                   "Height": "100mm",
                   "Width": "50mm",
                   "Weight": "110g",
@@ -93,7 +93,7 @@ angular.
 
       var factory = {};
 
-      factory.getPhoneIdListAjax1 = function(key) {
+      factory.getPhoneIdListAjax = function(key) {
         return allPhonesInfosPromise().then(function(data) {
           var filteredList = [];
           for (var i in data) {
@@ -101,14 +101,7 @@ angular.
               filteredList.push(i);
             }
           }
-          console.log(filteredList);
           return filteredList;
-        });
-      };
-
-      factory.getPhoneIdListAjax = function() {
-        return allPhonesInfosPromise().then(function(data) {
-          return Object.keys(data);
         });
       };
 
