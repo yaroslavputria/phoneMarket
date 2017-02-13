@@ -3,12 +3,19 @@
 angular.module('phoneMarketAngularApp')
   .component('phoneListComp', {
     templateUrl: 'components/phone-list.component.html',
-    controller: ['Phone',
-      function phoneListController(Phone) {
+    controller: ['Phone', '$scope',
+      function phoneListController(Phone, $scope) {
         var self = this;
-        self.phoneIdList = ['tmp'];
+        self.searchKey = '';
+
+        self.searchChanged = function(searchKey) {
+          Phone.getPhoneIdListAjax1(searchKey).then((phoneList) => {
+            $scope.$evalAsync(self.phoneIdList = phoneList);
+          });
+        };
+
         Phone.getPhoneIdListAjax().then((phoneList) => {
-          self.phoneIdList = phoneList;
+          $scope.$evalAsync(self.phoneIdList = phoneList);
         });
       }
     ]

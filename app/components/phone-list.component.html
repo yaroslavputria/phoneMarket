@@ -1,3 +1,4 @@
 <div class="container phone-list">
+  <input type="text" ng-model="$ctrl.searchKey" ng-change="$ctrl.searchChanged($ctrl.searchKey)">
   <phone-comp ng-repeat="(key, value) in $ctrl.phoneIdList" phoneid="{{value}}"></phone-comp>
 </div>

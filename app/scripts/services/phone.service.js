@@ -77,7 +77,34 @@ angular.
         });
       }
 
+      function checkForSearch(obj, key) {
+        var fullStrForSearch = '';
+        for (var i in obj) {
+          if (i!=='id' && i!=='imgUrl' && i!=='shortInfoList') {
+            fullStrForSearch += obj[i];
+          } else if (i==='shortInfoList'){
+            for (var j in obj[i]){
+              fullStrForSearch += obj[i][j];
+            }
+          }
+        }
+        return fullStrForSearch.includes(key);
+      }
+
       var factory = {};
+
+      factory.getPhoneIdListAjax1 = function(key) {
+        return allPhonesInfosPromise().then(function(data) {
+          var filteredList = [];
+          for (var i in data) {
+            if (checkForSearch(data[i], key)) {
+              filteredList.push(i);
+            }
+          }
+          console.log(filteredList);
+          return filteredList;
+        });
+      };
 
       factory.getPhoneIdListAjax = function() {
         return allPhonesInfosPromise().then(function(data) {
