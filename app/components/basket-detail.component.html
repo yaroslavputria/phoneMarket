@@ -1,7 +1,9 @@
-<div class="for-basket-detail">
-  <ul ng-show="basket" ng-init="totalPrice = 0">Your items in basket:
-    <li ng-repeat="(key, value) in basketInfos">{{value.title}} x {{value.count}} ...... price {{value.price * value.count}}$</li>
-    <li style="list-style-type: none">Total price: {{totalPrice}}$</li>
-  </ul>
-  <p ng-hide="basket">Basket is empty!</p>
+<div class="basket-wrap">
+  <div class="for-basket-detail">
+    <ul ng-show="basket" ng-init="totalPrice = 0">Your items in basket:
+      <li ng-repeat="(key, value) in basketInfos">{{value.title}} x {{value.count}} ...... price {{value.price * value.count}}$</li>
+      <li style="list-style-type: none">Total price: {{totalPrice}}$</li>
+    </ul>
+    <p ng-hide="basket">Basket is empty!</p>
+  </div>
 </div>

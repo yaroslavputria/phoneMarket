@@ -3,10 +3,23 @@ body {
   min-width: 430px;
 }
 
-.phone-card{
+.phone-card {
   margin: 2%;
 }
 
 .phone-card .for-button {
   text-align: right;
+}
+
+.basket-wrap {
+  position: absolute;
+
+}
+
+.for-basket-detail {
+  position: relative;
+  width: 200px;
+  right: 150px;
+  background-color: white;
+  border: 1px solid black;
 }
